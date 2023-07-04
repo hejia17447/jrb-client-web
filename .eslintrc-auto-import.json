@@ -1,15 +1,11 @@
 {
   "globals": {
-    "EffectScope": true,
-    "ElForm": true,
-    "ElMessage": true,
-    "ElMessageBox": true,
-    "ElTree": true,
-    "asyncComputed": true,
-    "autoResetRef": true,
     "Component": true,
     "ComponentPublicInstance": true,
     "ComputedRef": true,
+    "EffectScope": true,
+    "ElMessage": true,
+    "ElMessageBox": true,
     "InjectionKey": true,
     "PropType": true,
     "Ref": true,
