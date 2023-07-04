@@ -23,7 +23,20 @@ export default defineConfig(({ command, mode }) => {
         "@": pathSrc,
       }
     },
-    server: {},
+    server: {
+      host: '0.0.0.0',
+      port: Number(env.VITE_APP_PORT),
+      open: true,
+      // 反向代理解决跨域
+      proxy: {
+        [env.VITE_APP_BASE_API]: {
+          target: 'http://192.168.1.6',
+          changeOrigin: true,
+          rewrite: path => 
+            path.repeat(new RegExp('^' + env.VITE_APP_BASE_API, ''))
+        }
+      }
+    },
     plugins: [
       vue(),
       AutoImport({
@@ -79,6 +92,6 @@ export default defineConfig(({ command, mode }) => {
             additionalData: `@use "@/styles/variables.scss" as *;`
         }
       }
-    }
+    },
   }
 })
